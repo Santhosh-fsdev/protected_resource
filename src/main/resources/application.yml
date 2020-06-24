@@ -1,0 +1,14 @@
+server:
+  port: 8082
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://oauth-server:8080/oauth/check_token
+      user-info-uri: http://oauth-server:8080/oauth/user
+    client:
+      client-id: santhosh
+      client-secret: santhosh
+spring:
+  application:
+    name: Protected Resource
