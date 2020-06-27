@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  protected-resource:
+    image: protected_resource:latest
+    networks:
+      mongo-connect:
+    ports:
+    - "8082:8082"
+    depends_on:
+      - db
+
+  db:
+    image: mongo:latest
+    ports:
+    - "27017:27017"
+    networks:
+      mongo-connect:
+
+networks:
+  mongo-connect:

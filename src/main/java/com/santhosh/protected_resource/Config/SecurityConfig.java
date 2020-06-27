@@ -11,8 +11,11 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.requestMatchers().antMatchers("/get").
-                and().authorizeRequests().anyRequest()
-                .access("#oauth2.hasScope('READ')");
+        http.authorizeRequests().antMatchers("/listall").access("#oauth2.hasScope('READ')")
+
+                .and()
+                .authorizeRequests().antMatchers("/insert").access("#oauth2.hasScope('WRITE') and hasAuthority('AUTHORITY_VENDOR')")
+                .and()
+                .authorizeRequests().antMatchers("/check").access("#oauth2.hasScope('WRITE') and hasAuthority('AUTHORITY_VENDOR')");
     }
 }
