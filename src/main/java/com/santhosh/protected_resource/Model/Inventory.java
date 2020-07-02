@@ -4,22 +4,20 @@ import org.springframework.data.annotation.Id;
 
 public class Inventory {
 
-    public Inventory() {
-    }
-
-    public Inventory( String item, String name, int quantity, int price) {
-        this.item = item;
-        this.name = name;
-        this.quantity = quantity;
-        this.price = price;
-    }
-
     @Id
     public String id;
     public String item;
     public String name;
     public int quantity;
     public int price;
+    public Inventory() {
+    }
+    public Inventory(String item, String name, int quantity, int price) {
+        this.item = item;
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
 
     public String getId() {
         return id;

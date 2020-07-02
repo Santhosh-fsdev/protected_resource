@@ -26,38 +26,40 @@ public class MainController {
     private OrderRepository orderRepository;
 
     @GetMapping("/check")
-    public String check(){
+    public String check() {
         return "you have the auhtority";
     }
 
     @GetMapping("/get")
-    public String send(){
+    public String send() {
         log.info("Get request");
         return " You have the write access to this resource";
     }
 
     @GetMapping("/listall")
-    public List<Inventory> listall(){
+    public List<Inventory> listall() {
         log.info("Querying all details from database");
         return productsRespository.findAll();
     }
 
     @PostMapping("/insert")
-    public String insert(@RequestBody Inventory inventory){
+    public String insert(@RequestBody Inventory inventory) {
         productsRespository.save(inventory);
 
         log.info("Data Saved");
         return "Data Saved Successfully!";
     }
+
     @PostMapping("/order")
-    public String insert(@RequestBody Order order){
+    public String insert(@RequestBody Order order) {
         orderRepository.save(order);
 
         log.info("Data Saved");
         return "Data Saved Successfully!";
     }
+
     @DeleteMapping("/delete/{id}")
-    public String delete(@PathVariable (value = "id") String id){
+    public String delete(@PathVariable(value = "id") String id) {
         productsRespository.deleteById(id);
         return "Data Deleted Succesfully!";
     }

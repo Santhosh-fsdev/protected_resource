@@ -4,8 +4,8 @@ server:
 security:
   oauth2:
     resource:
-      token-info-uri: http://localhost:8080/oauth/check_token
-      user-info-uri: http://localhost:8080/oauth/user
+      token-info-uri: http://auth-server:8080/oauth/check_token
+      user-info-uri: http://auth-server:8080/oauth/user
     client:
       client-id: santhosh
       client-secret: santhosh
@@ -14,7 +14,7 @@ spring:
     name: Protected Resource
   data:
     mongodb:
-      host: localhost
+      host: db
       port: 27017
       database: products
   zipkin:

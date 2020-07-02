@@ -7,6 +7,21 @@ import java.util.Date;
 
 public class Order {
 
+    @Id
+    private String id;
+    private String username;
+    private String name;
+    private Date date;
+
+    public Order(String username, String name, Date date) {
+        this.username = username;
+        this.name = name;
+        this.date = date;
+    }
+
+    public Order() {
+    }
+
     public String getId() {
         return id;
     }
@@ -38,21 +53,4 @@ public class Order {
     public void setDate(Date date) {
         this.date = date;
     }
-
-    @Id
-    private String id;
-
-    public Order(String username, String name, Date date) {
-        this.username = username;
-        this.name = name;
-        this.date = date;
-    }
-
-    private String username;
-
-    public Order() {
-    }
-
-    private String name;
-    private Date date;
 }
