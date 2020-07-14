@@ -27,7 +27,7 @@ public class MainController {
 
     @GetMapping("/check")
     public String check() {
-        return "you have the auhtority";
+        return "you have the authority";
     }
 
     @GetMapping("/get")
@@ -47,7 +47,7 @@ public class MainController {
         productsRespository.save(inventory);
 
         log.info("Data Saved");
-        return "Data Saved Successfully!";
+        return "Product named" +" " + inventory.getName() + " "+ " Added Successfully";
     }
 
     @PostMapping("/order")
@@ -55,13 +55,13 @@ public class MainController {
         orderRepository.save(order);
 
         log.info("Data Saved");
-        return "Data Saved Successfully!";
+        return "Order named" + " "+  order.getName() + " "+ "Placed Successfully";
     }
 
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable(value = "id") String id) {
         productsRespository.deleteById(id);
-        return "Data Deleted Succesfully!";
+        return "Product with ID" + " "+ id + " "+" Deleted Successfully";
     }
 
 
